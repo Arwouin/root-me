@@ -1,24 +1,13 @@
 <!doctype html>
 <html>
 <head>
+  <!-- Force le contexte challenge immédiatement -->
   <meta http-equiv="refresh" content="0;url=http://challenge01.root-me.org:58007/">
-  <script>
-
-    setTimeout(() => {
-      location.href = 'http://challenge01.root-me.org:58007/';
-    }, 10);
-
-    
-    window.addEventListener('load', () => {
-      if (location.host === 'challenge01.root-me.org') {
-        
-        setTimeout(() => {
-          location.href = '/flag';  
-        }, 100);
-      }
-    });
-  </script>
 </head>
-<body>
-</body>
+<script>
+  // Dès que challenge charge = navigation interne
+  window.onload = () => {
+    location.href = '/flag';
+  }
+</script>
 </html>
