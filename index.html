@@ -11,17 +11,14 @@
     window.addEventListener('load', () => {
       log('load - go directly to /flag');
       
-      
       setTimeout(() => {
         log('go to /flag');
-        location.href = '/flag';
-      }, 500); 
+        location.href = 'http://challenge01.root-me.org:58007/flag'; 
+      }, 500);
     });
 
-    
     window.addEventListener('pageshow', (event) => {
       log('pageshow, persisted=' + event.persisted);
-      
       
       setTimeout(() => {
         log('history.back()');
@@ -35,4 +32,3 @@
   <p style="font-size:24px;">Status: <span id="status" style="color:blue;">LOADING...</span></p>
 </body>
 </html>
-
