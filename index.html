@@ -1,31 +1,37 @@
-<script>
-  function log(msg) {
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Root-Me BFCache</title>
+  <script>
+    function log(msg) {
+      console.log('[BFCache]', msg);
+    }
 
-    console.log('[BFCache]', msg);
-  }
+    window.addEventListener('load', () => {
+      log('load');
 
-  window.addEventListener('load', () => {
-    log('load');
+      history.pushState({step: 1}, '', 'step1');
+      history.pushState({step: 2}, '', 'step2');
 
+      setTimeout(() => {
+        log('go to /flag');
+        location.href = '/flag';
+      }, 2000);
+    });
 
-    history.pushState({step: 1}, '', 'step1');
-    history.pushState({step: 2}, '', 'step2');
+    window.addEventListener('pageshow', (event) => {
+      log('pageshow, persisted=' + event.persisted);
 
-   
-    setTimeout(() => {
-      log('go to /flag');
-      location.href = 'http://challenge01.root-me.org:58007/flag';
-    }, 2000);
-  });
-
- 
-  window.addEventListener('pageshow', (event) => {
-    log('pageshow, persisted=' + event.persisted);
-
-  
-    setTimeout(() => {
-      log('history.back()');
-      history.back();
-    }, 2000);
-  });
-</script>
+      setTimeout(() => {
+        log('history.back()');
+        history.back();
+      }, 2000);
+    });
+  </script>
+</head>
+<body>
+  <h1 style="font-size:40px; color:red;">BFCache TEST</h1>
+  <p style="font-size:24px;">Si tu vois ce texte dans le screenshot, la page GitHub charge bien.</p>
+</body>
+</html>
