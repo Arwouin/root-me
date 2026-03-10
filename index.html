@@ -9,23 +9,18 @@
     }
 
     window.addEventListener('load', () => {
-      log('load - prepare history');
-      
-
-      history.pushState({}, '', '/dummy1');
-      history.pushState({}, '', '/dummy2');
+      log('load - go to /flag');
       
       setTimeout(() => {
         log('go to /flag');
         location.href = 'http://challenge01.root-me.org:58007/flag';
-      }, 1000); 
+      }, 500);
     });
-
 
   </script>
 </head>
 <body>
-  <h1 style="font-size:40px; color:orange;">BFCACHE HISTORY</h1>
-  <p style="font-size:24px;">Status: <span id="status" style="color:blue;">PREPARING...</span></p>
+  <h1 style="font-size:40px; color:orange;">BFCACHE SIMPLE</h1>
+  <p style="font-size:24px;">Status: <span id="status" style="color:blue;">GOING TO FLAG...</span></p>
 </body>
 </html>
