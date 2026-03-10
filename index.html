@@ -8,37 +8,31 @@
       console.log('[BFCache]', msg);
     }
 
-    let hasVisitedFlag = false;
-
     window.addEventListener('load', () => {
-      log('load');
-
-      history.pushState({step: 1}, '', 'step1');
-      history.pushState({step: 2}, '', 'step2');
-
-
+      log('load - go directly to /flag');
+      
+      
       setTimeout(() => {
         log('go to /flag');
-        hasVisitedFlag = true;
         location.href = '/flag';
-      }, 6000);
+      }, 500); 
     });
 
+    
     window.addEventListener('pageshow', (event) => {
       log('pageshow, persisted=' + event.persisted);
-
-
-      if (hasVisitedFlag) {
-        setTimeout(() => {
-          log('history.back()');
-          history.back();
-        }, 3000);
-      }
+      
+      
+      setTimeout(() => {
+        log('history.back()');
+        history.back();
+      }, 1000);
     });
   </script>
 </head>
 <body>
-  <h1 style="font-size:40px; color:red;">BFCache TEST</h1>
-  <p style="font-size:24px;">Si tu vois ce texte, la page GitHub charge bien.</p>
+  <h1 style="font-size:40px; color:red;">BFCache DIRECT</h1>
+  <p style="font-size:24px;">Status: <span id="status" style="color:blue;">LOADING...</span></p>
 </body>
 </html>
+
