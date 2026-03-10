@@ -1,13 +1,11 @@
-<html>
-<body>
-
-<iframe src="http://127.0.0.1:58007/flag"></iframe>
-
 <script>
-setTimeout(()=>{
-  history.back()
-},500)
-</script>
 
-</body>
-</html>
+let url = "http://challenge01.root-me.org:58007/flag"
+
+fetch(url).catch(()=>{})
+
+setTimeout(()=>{
+    window.open(url)
+},200)
+
+</script>
