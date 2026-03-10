@@ -1,34 +1,31 @@
-<!doctype html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>Root-Me BFCache Test</title>
-  <script>
-    window.addEventListener('load', () => {
+<script>
+  function log(msg) {
 
-      history.pushState({}, '', 'step1');
+    console.log('[BFCache]', msg);
+  }
 
-
-      setTimeout(() => {
+  window.addEventListener('load', () => {
+    log('load');
 
 
+    history.pushState({step: 1}, '', 'step1');
+    history.pushState({step: 2}, '', 'step2');
 
-        location.href = 'http://challenge01.root-me.org:58007/flag';
-      }, 1000);
-    });
+   
+    setTimeout(() => {
+      log('go to /flag');
+      location.href = 'http://challenge01.root-me.org:58007/flag';
+    }, 2000);
+  });
 
+ 
+  window.addEventListener('pageshow', (event) => {
+    log('pageshow, persisted=' + event.persisted);
 
-    window.addEventListener('pageshow', (event) => {
-      
-      setTimeout(() => {
-        
-        history.back();
-      }, 1000);
-    });
-  </script>
-</head>
-<body>
-  <h1>BFCache test</h1>
-  <p>Normal.</p>
-</body>
-</html>
+  
+    setTimeout(() => {
+      log('history.back()');
+      history.back();
+    }, 2000);
+  });
+</script>
