@@ -2,25 +2,20 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Root-Me BFCache</title>
   <script>
-    function log(msg) {
-      console.log('[BFCache]', msg);
-    }
-
     window.addEventListener('load', () => {
-      log('load - go to /flag');
+
+      setTimeout(() => {
+        location.href = 'http://challenge01.root-me.org:58007/flag';
+      }, 300);
       
       setTimeout(() => {
-        log('go to /flag');
         location.href = 'http://challenge01.root-me.org:58007/flag';
-      }, 500);
+      }, 800);
     });
-
   </script>
 </head>
-<body>
-  <h1 style="font-size:40px; color:orange;">BFCACHE SIMPLE</h1>
-  <p style="font-size:24px;">Status: <span id="status" style="color:blue;">GOING TO FLAG...</span></p>
+<body style="background:black;color:lime;font-size:30px;">
+  <h1>DISK CACHE TEST</h1>
 </body>
 </html>
