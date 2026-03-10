@@ -2,12 +2,14 @@
 <html>
 <head>
   <meta http-equiv="refresh" content="0;url=http://challenge01.root-me.org:58007/">
-  <script>
+</head>
+<script>
 
-    window.onload = function() {
+  if (location.host === 'challenge01.root-me.org') {
+    setTimeout(() => {
 
       location.href = '/flag';
-    }
-  </script>
-</head>
+    }, 200);
+  }
+</script>
 </html>
