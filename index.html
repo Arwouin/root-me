@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Root-Me BFCache Test</title>
+  <script>
+    window.addEventListener('load', () => {
+
+      history.pushState({}, '', 'step1');
+
+
+      setTimeout(() => {
+
+
+
+        location.href = '/flag';
+      }, 1000);
+    });
+
+
+    window.addEventListener('pageshow', (event) => {
+      
+      setTimeout(() => {
+        
+        history.back();
+      }, 1000);
+    });
+  </script>
+</head>
+<body>
+  <h1>BFCache test</h1>
+  <p>Normal.</p>
+</body>
+</html>
