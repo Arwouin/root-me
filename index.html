@@ -2,14 +2,23 @@
 <html>
 <head>
   <meta http-equiv="refresh" content="0;url=http://challenge01.root-me.org:58007/">
-</head>
-<script>
+  <script>
 
-  if (location.host === 'challenge01.root-me.org') {
     setTimeout(() => {
+      location.href = 'http://challenge01.root-me.org:58007/';
+    }, 10);
 
-      location.href = '/flag';
-    }, 200);
-  }
-</script>
+    
+    window.addEventListener('load', () => {
+      if (location.host === 'challenge01.root-me.org') {
+        
+        setTimeout(() => {
+          location.href = '/flag';  
+        }, 100);
+      }
+    });
+  </script>
+</head>
+<body>
+</body>
 </html>
