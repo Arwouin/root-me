@@ -1,13 +1,12 @@
 <!doctype html>
 <html>
 <head>
-  <!-- Force le contexte challenge immédiatement -->
-  <meta http-equiv="refresh" content="0;url=http://challenge01.root-me.org:58007/">
-</head>
 <script>
-  // Dès que challenge charge = navigation interne
-  window.onload = () => {
-    location.href = '/flag';
-  }
+  // TES tests = 1.47s local = bot capture à 1.5s
+  // Donc navigation à EXACTEMENT 450ms
+  setTimeout(() => {
+    location.href = 'http://challenge01.root-me.org:58007/flag';
+  }, 450);
 </script>
+</head>
 </html>
